@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="MikhailDemakovMedicalApplication/App.axaml" value="MikhailDemakovMedicalApplication/MikhailDemakovMedicalApplication.csproj" />
+        <entry key="MikhailDemakovMedicalApplication/Authorization.axaml" value="MikhailDemakovMedicalApplication/MikhailDemakovMedicalApplication.csproj" />
+        <entry key="MikhailDemakovMedicalApplication/MainWindow.axaml" value="MikhailDemakovMedicalApplication/MikhailDemakovMedicalApplication.csproj" />
+        <entry key="MikhailDemakovMedicalApplication/UserControl1.axaml" value="MikhailDemakovMedicalApplication/MikhailDemakovMedicalApplication.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

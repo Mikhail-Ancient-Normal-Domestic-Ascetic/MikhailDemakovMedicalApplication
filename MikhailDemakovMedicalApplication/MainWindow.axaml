@@ -1,0 +1,55 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:MikhailDemakovMedicalApplication.Models"
+        mc:Ignorable="d" d:DesignWidth="1150" d:DesignHeight="450"
+        x:Class="MikhailDemakovMedicalApplication.MainWindow"
+        Title="Записи">
+        <StackPanel Orientation="Horizontal" >
+                <DataGrid x:Name="AppointmentsDataGrid"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          GridLinesVisibility="All"
+                          BorderThickness="1"
+                          BorderBrush="Gray"
+                          x:DataType="models:Appointments"
+                          Margin="0,0">
+                        <DataGrid.Columns>
+                                <DataGridTextColumn Header="Номер приёма" Binding= "{Binding appointment_id}"/>
+                                <DataGridTextColumn Header="Пациент" Binding= "{Binding patient_id}"/>
+                                <DataGridTextColumn Header="Доктор" Binding= "{Binding personnel_id}"/>
+                                <DataGridTextColumn Header="Дата приёма" Binding= "{Binding appointment_date}"/>
+                                <DataGridTextColumn Header="Статус оплаты" Binding= "{Binding payment_status}"/>
+                                <DataGridTextColumn Header="Дополнительная информация" Binding= "{Binding consultation_notes}"/>
+                        </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel>
+                        <TextBlock Text="Поиск по пациентам:" Margin="10,10,0,0"/>
+                        <TextBox x:Name="TextClient" Margin="10,10,0,0" />
+                        <Button x:Name="ClientBtn" Content="Найти" Click="ClientBtn_OnClick" Margin="97,10,0,0" />
+                     <TextBlock Text="Фильтрация по доктору:" Margin="10,10,0,0" />
+                        <ComboBox x:Name="StatusFilterBox" Margin="10,10,0,0" Width="250" SelectionChanged="StatusFilterBox_OnSelectionChanged">
+                               <ComboBox.ItemTemplate>
+                                       <DataTemplate>
+                                               <TextBlock x:DataType="models:Personnel" Text="{Binding last_name}" />
+                                       </DataTemplate>
+                               </ComboBox.ItemTemplate> 
+                        </ComboBox>
+                        <Button x:Name="BtReset" Content="Обновить" Click="BtReset_OnClick" Margin="90,10,0,0" />
+                        <Label x:Name="Label_1" Content="Заполните данные для добавления записи:" Margin="10,10,0,0" />
+                        
+                        <TextBox x:Name="appointment_id_TextBox" Watermark="Номер приёма (не должен повторяться)" Margin="10,10,0,0" />
+                        <TextBox x:Name="patient_id_TextBox" Watermark="Пациент (введите номер)" Margin="10,10,0,0" />
+                        <TextBox x:Name="personnel_id_TextBox" Watermark="Доктор (введите номер)" Margin="10,10,0,0" />
+                        <MaskedTextBox x:Name="appointment_date_TextBox"  Mask="0000 - 00 - 00" Watermark="Дата приёма (в формате ГГГГ-ММ-ДД ЧЧ:ММ:СС)" Margin="10,10,0,0" />
+                        <TextBox x:Name="payment_status_TextBox" Watermark="Статус оплаты (Оплачено или нет)" Margin="10,10,0,0" />
+                        <TextBox x:Name="consultation_notes_TextBox" Watermark="Дополнительная информация (любой текст до 50 символов)" Margin="10,10,0,0" />
+                        <Button x:Name="AddButton" Content="Добавить" Margin="10" Click="AddButton_OnClick"/>
+                        <Button x:Name="DeleteButton" Content="Удалить" Margin="10" Click="DeleteWindow_OnClick"/>
+                         
+                </StackPanel>
+        </StackPanel>
+</Window>
+
+
